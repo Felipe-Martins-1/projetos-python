@@ -1,0 +1,2 @@
+# PythonProjects
+Código que tem a lógica do clássico "Jogo da Velha" com incrementos: aceita um ou dois jogadores, seleciona de forma aleatória o valor e quem começa a partida, permite começar outra partida e faz a contagem das vitórias. Para o caso de um jogador, existe um “Bot” (sem IA) que assume o posto do segundo jogador.
