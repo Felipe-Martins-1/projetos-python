@@ -1,2 +1,2 @@
 # PythonProjects
-Programas básicos, com intuito de treinar!
+Projetos básicos, com intuito de treinar!

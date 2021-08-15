@@ -9,7 +9,6 @@ class Jogo:
         self.posicoesSobrando = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
         self.pontuacaoJogador1 = 0
         self.pontuacaoJogador2 = 0
-        self.iniciarJogo()
 
     def resertarValores(self):
         self.posicoes = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]

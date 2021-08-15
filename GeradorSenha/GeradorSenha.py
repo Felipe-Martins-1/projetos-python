@@ -15,7 +15,11 @@ class GeradorSenha:
         self.selecionarCaracteres()    
  
     def selecionarTipo(self):
+
+        # SIMBOLOS LIMITADOS
         simbolos = "!@#$%^&*"
+
+        # POSSIBILIDADES DE ESCOLHAS DO USUÁRIO
         if self.letrasMaiusculas == True and self.letrasMinusculas == True and self.numeros == True and self.simbolos == True and self.tudo == True or self.tudo == True:
             self.caracteres = ascii_uppercase + ascii_lowercase + digits + simbolos
         elif self.letrasMaiusculas == True and self.letrasMinusculas == True and self.numeros == True and self.simbolos == False:
@@ -48,7 +52,8 @@ class GeradorSenha:
             self.caracteres = digits
         else:
             self.caracteres = ascii_uppercase + ascii_lowercase + simbolos
-        
+
+    # SELECIONA DE FORMA ALEATÓRIA E JUNTA OS CARACTERES
     def selecionarCaracteres(self):
         for i in range (self.qtdCaracteres):
             self.senha += choice(self.caracteres)

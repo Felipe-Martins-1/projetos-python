@@ -7,7 +7,7 @@ class Principal:
     def iniciarPrograma(self):
         tela = Tela().telaPrincipal()
         while True:
-            janela, evento, valor = read_all_windows()
+            janela, evento = read_all_windows()
             if janela == tela and evento == WIN_CLOSED:
                 break
             elif janela == tela and evento == "gerar":
