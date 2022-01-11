@@ -1,0 +1,3 @@
+[default]
+TITLE = "Mensagem Segura"
+SECRET_KEY = "14jkb7689bdhsb9gdf08ip"

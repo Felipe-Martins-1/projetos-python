@@ -1,0 +1,47 @@
+<!-- Extende o arquivo base -->
+{% extends 'base.html' %}
+
+{% block title %}Mensagem Segura{% endblock %}
+
+{% block body %}
+<main>
+    <header>
+        <h1>Mensagem Segura</h1>
+    </header>
+    <hr>
+    <h2>Criptografar</h2>
+    <form action="/" method="post">
+        <textarea name="text" class="text_left" maxlength="300" placeholder="Texto" required></textarea>
+        <textarea class="text_right" placeholder="Resultado" disabled>{{ encr_text }}</textarea>
+        <br>
+        <input type="number" name="key_e" placeholder="Chave E" min="1024" max="99999" required>
+        <input type="number" name="key_n" placeholder="Chave N" min="1024" max="99999" required>
+        <input type="submit" name="bt_encrypt" value="Criptografar">
+        <input type="reset" name="bt_clean" value="Limpar">
+    </form>
+    <hr>
+    <h2>Descriptografar</h2>
+    <form action="/" method="post">
+        <textarea name="text" class="text_left" placeholder="Texto" required></textarea>
+        <textarea class="text_right" placeholder="Resultado" disabled>{{ decr_text }}</textarea>
+        <br>
+        <input type="number" name="key_d" placeholder="Chave D" min="1024" max="99999" required>
+        <input type="number" name="key_n" placeholder="Chave N" min="1024" max="99999" required>
+        <input type="submit" name="bt_decrypt" value="Descriptografar">
+        <input type="reset" name="bt_clean" value="Limpar">
+    </form>
+    <hr>
+    <form action="/" method="post">
+        <input type="submit" class="bt_generate" name="bt_generate" value="Gerar chaves">
+    </form>
+
+    <!-- Verifica se há valor, caso sim, renderiza a div -->
+    {% if keys %}
+    <div id="key_result">
+        <h3>Chave N = {{ keys["chave_n"]}}</h3>
+        <h3>Chave E = {{ keys["chave_e"]}}</h3>
+        <h3>Chave D = {{ keys["chave_d"]}}</h3>
+    </div>
+    {% endif %}
+</main>
+{% endblock %}
