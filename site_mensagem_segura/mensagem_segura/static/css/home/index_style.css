@@ -1,0 +1,58 @@
+main {
+    width: fit-content;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: white;
+}
+
+h2 {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #7fb5fd;
+}
+
+textarea, input {
+    border: none;
+    padding: 7px;
+    background-color: #7fb5fd;
+}
+
+textarea {
+    resize: none;
+    height: 120px;
+    width: 400px;
+}
+
+.text_right {
+    margin-left: 10px;
+}
+
+input {
+    margin-top: 10px;
+}
+
+.bt_generate {
+    margin-top: 0;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+@media screen and (max-width: 876px) {
+    .text_left {
+        width: 96%;
+    }
+
+    .text_right {
+        margin-left: 0px;
+        width: 96%;
+    }
+}
