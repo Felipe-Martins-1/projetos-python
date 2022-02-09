@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<main>
+    <h1>{{ title }}<br>{{ user.name }}</h1>
+    <fieldset>
+        <legend>Nova postagem</legend>
+        <form action="/adicionar-postagem" method="post">
+            <label>Título</label>
+            <br>
+            <input type="text" name="title" class="inp" maxlength="50" required>
+            <br>
+            <label>Texto</label>
+            <br>
+            <textarea name="text" class="tex" maxlength="1500" spellcheck="default"
+                placeholder="Limite de 1500 caracteres" required></textarea>
+            <br>
+            <input type="submit" id="button" value="Postar">
+            <input type="reset" id="button" value="Limpar">
+        </form>
+    </fieldset>
+    {% for message in get_flashed_messages() %}
+    <label>{{ message }}</label>
+    {% endfor %}
+    {% if posts %}
+    {% for post in posts %}
+    <article id="art_post">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.text }}</p>
+        <label id="lb_information">Publicado: {{ post.created_date_time }} | Atualizado: {{ post.updated_date_time
+            }}</label>
+        <ul>
+            <li>
+                <h4><a href="{{ url_for('blog.update_post', id=post.id_post) }}">Atualizar</a></h4>
+            </li>
+            <li>
+                <h4><a href="{{ url_for('blog.delete_post', id=post.id_post) }}">Deletar</a></h4>
+            </li>
+        </ul>
+    </article>
+    {% endfor %}
+    {% endif %}
+</main>
+{% endblock %}

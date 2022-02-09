@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    text-align: center;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px;
+}
+
+main {
+    text-align: center;
+    margin: auto;
+}
+
+fieldset {
+    padding: 20px;
+    width: fit-content;
+    margin: auto;
+    border-radius: 10px;
+    background-color: rgb(221, 221, 221);
+}
+
+h1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+textarea {
+    resize: none;
+    padding: 5px;
+    font-size: 13px;
+}
+
+.tex {
+    width: 450px;
+    height: 250px;
+    text-align: center;
+}
+
+label {
+    font-size: 20px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#lb_information {
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+legend {
+    font-size: 20px;
+    padding: 8px;
+    border: 1px solid rgb(71, 71, 71);
+    background-color: rgb(221, 221, 221);
+}
+
+input {
+    padding: 5px;
+}
+
+.inp {
+    width: 300px;
+    text-align: center;
+}
+
+#button {
+    margin-top: 10px;
+}
+
+#art_post {
+    width: 500px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(221, 221, 221);
+}

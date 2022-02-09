@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<main>
+    <h1>{{ title }}</h1>
+    {% if results %}
+    {% for result in results %}
+    <article id="art_post">
+        <h2>{{ result.title }}</h2>
+        <p>
+            {{ result.text|truncate(100) }}
+            <br>
+        <h4><a href="{{ url_for('blog.post', id=result.id_post) }}">Continuar...</a></h4>
+        </p>
+        <label id="lb_information">Autor (a): {{ result.name }}<br>Publicado: {{ result.created_date_time }} |
+            Atualizado:
+            {{
+            result.updated_date_time }}</label>
+    </article>
+    {% endfor %}
+    {% endif %}
+    {% for message in get_flashed_messages() %}
+    <label>{{ message }}</label>
+    {% endfor %}
+</main>
+{% endblock %}

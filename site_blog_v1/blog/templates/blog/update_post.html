@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<main>
+    <h1>{{ title }}</h1>
+    <fieldset>
+        <legend>Atualizar postagem</legend>
+        <form action="/altualizar-postagem/{{ post.id_post }}" method="post">
+            <label>Título</label>
+            <br>
+            <input type="text" name="title" class="inp" maxlength="50" value="{{ post.title }}" required>
+            <br>
+            <label>Texto</label>
+            <br>
+            <textarea name="text" class="tex" maxlength="1500" spellcheck="default" required>{{ post.text }}</textarea>
+            <br>
+            <input type="submit" value="Atualizar">
+            <input type="reset" value="Limpar">
+        </form>
+    </fieldset>
+    {% for message in get_flashed_messages() %}
+    <label>{{ message }}</label>
+    {% endfor %}
+</main>
+{% endblock %}

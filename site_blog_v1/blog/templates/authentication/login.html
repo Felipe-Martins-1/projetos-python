@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<main>
+    <h1>{{ title }}</h1>
+    <form action="/entrar" method="post">
+        <label>Nome de usuário</label>
+        <br>
+        <input type="text" name="name_user" class="inp" maxlength="15" required>
+        <br>
+        <label>Senha</label>
+        <br>
+        <input type="password" name="password" class="inp" max="20" required>
+        <br>
+        <input type="submit" id="button" value="Entrar">
+        <input type="reset" id="button" value="Limpar">
+    </form>
+    {% for message in get_flashed_messages() %}
+    <label>{{ message }}</label>
+    {% endfor %}
+</main>
+{% endblock %}

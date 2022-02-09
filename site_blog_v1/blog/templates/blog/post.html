@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<main>
+    {% if result %}
+    <h1>{{ result.name }} - {{ title }}</h1>
+    <article id="art_post">
+        <h2>{{ result.title }}</h2>
+        <p>{{ result.text }}</p>
+        <label id="lb_information">Publicado: {{ result.created_date_time }} | Atualizado: {{ result.updated_date_time
+            }}</label>
+    </article>
+    {% endif %}
+</main>
+{% endblock %}
