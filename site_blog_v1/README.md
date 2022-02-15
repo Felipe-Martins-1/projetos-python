@@ -6,7 +6,7 @@
     - Tem as funções de login e logout com diferentes permissões;
     - Adiciona, atualiza e deleta postagens;
     - Mostra todas os textos postados;
-    - Possuí duas API's, uma retorna todos os usuários e a outra retorna todas as postagens.
+    - Possuí duas API's, uma retorna todos os usuários (.../api-json/usuarios) e a outra retorna todas as postagens (.../api-json/postagens).
 
 - OBSERVAÇÃO:
     - Suporta um texto de até 1500 caracteres;
