@@ -3,3 +3,4 @@ TITLE="Blog"
 SECRET_KEY="huf7843wgan90k"
 SQLALCHEMY_DATABASE_URI="sqlite:///../instance/blog.db"
 JSON_AS_ASCII=false
+FLASK_ADMIN_SWATCH="Cosmo"

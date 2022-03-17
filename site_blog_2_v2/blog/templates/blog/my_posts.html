@@ -4,7 +4,7 @@
 
 {% block body %}
 <main>
-    <h1>{{ title }}<br>{{ user.name }}</h1>
+    <h1>{{ title }}<br>{{ current_user.name }}</h1>
     <fieldset>
         <legend>Nova postagem</legend>
         <form action="/adicionar-postagem" method="post">
@@ -33,10 +33,11 @@
             }}</label>
         <ul>
             <li>
-                <h4><a href="{{ url_for('blog.update_post', id=post.id_post) }}">Atualizar</a></h4>
+                <h4><a href="{{ url_for('blog.update_post', id=post.id) }}">Atualizar</a></h4>
             </li>
             <li>
-                <h4><a href="{{ url_for('blog.delete_post', id=post.id_post) }}">Deletar</a></h4>
+                <h4><a href="{{ url_for('blog.delete_post', id=post.id) }}"
+                        onclick="return confirm('Deseja deletar?');">Deletar</a></h4>
             </li>
         </ul>
     </article>

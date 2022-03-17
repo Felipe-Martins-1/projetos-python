@@ -40,8 +40,8 @@ def posts_api():
                 User.name,
             )
             .join(User)
-            .filter(Post.users_id_user == User.id_user)
-            .order_by(Post.id_post.desc())
+            .filter(Post.users_id == User.id)
+            .order_by(Post.id.desc())
             .all()
         )
         db.session.close()

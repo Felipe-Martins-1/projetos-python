@@ -1,15 +1,15 @@
+from .database import User, db
 from flask import (
     Blueprint,
     render_template,
     request,
     redirect,
     url_for,
-    session,
     flash,
-    g,
 )
+from ..extensions.config_login import login_manager
+from flask_login import login_required, login_user, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from .database import User, db
 
 bp = Blueprint("authentication", __name__)
 
@@ -17,7 +17,7 @@ bp = Blueprint("authentication", __name__)
 @bp.route("/registrar", methods=["GET", "POST"])
 def register():
     try:
-        if g.id_user:
+        if current_user.is_authenticated:
             return redirect(url_for("blog.my_posts"))
         else:
             if request.method == "POST":
@@ -39,10 +39,15 @@ def register():
     return render_template("authentication/register.html", title="Registrar")
 
 
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(id)
+
+
 @bp.route("/entrar", methods=["GET", "POST"])
 def login():
     try:
-        if g.id_user:
+        if current_user.is_authenticated:
             return redirect(url_for("blog.my_posts"))
         else:
             if request.method == "POST":
@@ -51,9 +56,8 @@ def login():
                 user = User.query.filter_by(name_user=name_user).first()
                 if user:
                     if check_password_hash(user.password, password):
-                        session.clear()
-                        session["id_user"] = user.id_user
-                        print("ID SESSÃO SETADO")
+                        login_user(user)
+                        print("LOGADO")
                         return redirect(url_for("blog.my_posts"))
                     else:
                         flash("Senha inválida!")
@@ -66,29 +70,12 @@ def login():
 
 
 @bp.route("/sair")
+@login_required
 def logout():
     try:
-        session.clear()
-        print("ID SESSÃO APAGADO")
+        logout_user()
+        print("DESLOGADO!")
     except Exception as e:
         flash("Erro ao sair!")
         print(f"\nERRO AO SAIR: {e}")
     return redirect(url_for("blog.index"))
-
-
-# Função que sempre é invocada automaticamente quando uma página web é carregada
-# ou recarregada, a mesma, verifica se há um valor (id) armazenado na sessão do
-# navegador
-@bp.before_app_request
-def load_logged_in_user():
-    try:
-        id_session = session.get("id_user")
-        if id_session:
-            print(f"USUÁRIO LOGADO, ID SESSÃO = {id_session}")
-            g.id_user = id_session
-        else:
-            print("USUÁRIO DESLOGADO")
-            g.id_user = None
-    except Exception as e:
-        flash("Erro para validar!")
-        print(f"\nERRO AO VALIDAR: {e}")

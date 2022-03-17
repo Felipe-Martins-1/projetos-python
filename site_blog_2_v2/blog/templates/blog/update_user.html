@@ -6,15 +6,15 @@
 <main>
     <h1>{{ title }}</h1>
     <fieldset>
-        <legend>Atualizar postagem</legend>
-        <form action="/altualizar-postagem/{{ post.id_post }}" method="post">
-            <label>Título</label>
+        <form action="/atualizar-usuario/{{ current_user.id }}" method="post">
+            <label>Nome completo</label>
             <br>
-            <input type="text" name="title" class="inp" maxlength="50" value="{{ post.title }}" required>
+            <input type="text" name="name" class="inp" maxlength="60" value="{{ current_user.name }}" autofocus
+                required>
             <br>
-            <label>Texto</label>
+            <label>Senha</label>
             <br>
-            <textarea name="text" class="tex" maxlength="1500" spellcheck="default" required>{{ post.text }}</textarea>
+            <input type="password" name="password" class="inp" max="20" required>
             <br>
             <input type="submit" value="Atualizar">
             <input type="reset" value="Limpar">
