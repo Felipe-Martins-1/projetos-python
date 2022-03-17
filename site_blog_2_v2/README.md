@@ -15,7 +15,7 @@
 - OBSERVAÇÕES:
     - Suporta um texto de até 1500 caracteres;
     - Banco de dados: SQLite;
-    - Para demonstração, no banco de dados já tem alguns dados cadastrados de usuários para login ("vini", "ryan", "maria", "lara" e a senha de todos é "123") e postagens, também há um usuário/administrador (adm, senha "890");
+    - Para demonstração, no banco de dados já tem alguns dados cadastrados de usuários para login ("vini", "ryan", "maria", "lara" e a senha de todos é "123") e postagens, também há um usuário/administrador ("adm", senha "890");
     - No arquivo ".env" a variável de ambiente "FLASK_ENV" deste projeto recebe o valor "production", indicado para ambiente de produção (depurador do Flask desligado), já para ambiente de desenvolvimento a variável recebe o valor "development" (depurador do Flask ligado).
 
 - INSTALAÇÕES NECESSÁRIAS:
@@ -32,7 +32,6 @@
 - PARA INICIAR O APP:
     - Abra o terminal;
     - Entre no diretório raiz do projeto;
-    - Digite o comando "venv\Scripts\activate" para ativar o ambiente virtual;
     - Ative o servidor com o comando "flask run" e para desativar o servidor aperte "CTRL C";
     - Abra o navegador e acesse a URL "http://localhost:5000/" ou "http://127.0.0.1:5000/".
 
