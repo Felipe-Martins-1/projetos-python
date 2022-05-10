@@ -1,0 +1,10 @@
+path = str(
+    popup_get_file(
+        "Tipos extensões de arquivos permitidos: '.png', '.pdf'",
+        # save_as=False,
+        no_window=True,
+        # multiple_files=True,
+        # default_extension=".txt",
+        # file_types=(("Text", ".txt"))
+    )
+)
